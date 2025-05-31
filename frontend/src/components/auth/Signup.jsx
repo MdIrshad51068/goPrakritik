@@ -19,7 +19,7 @@ const Signup = () => {
         email: "",
         phoneNumber: "",
         password: "",
-        role: "",
+        role: "empoly",
         file: ""
     });
     const {loading,user} = useSelector(store=>store.auth);
@@ -116,30 +116,7 @@ const Signup = () => {
                         />
                     </div>
                     <div className='flex items-center justify-between'>
-                        <RadioGroup className="flex items-center gap-4 my-5">
-                            <div className="flex items-center space-x-2">
-                                <Input
-                                    type="radio"
-                                    name="role"
-                                    value="empoly"
-                                    checked={input.role === 'empoly'}
-                                    onChange={changeEventHandler}
-                                    className="cursor-pointer"
-                                />
-                                <Label htmlFor="r1">Empoly</Label>
-                            </div>
-                            <div className="flex items-center space-x-2">
-                                <Input
-                                    type="radio"
-                                    name="role"
-                                    value="admin"
-                                    checked={input.role === 'admin'}
-                                    onChange={changeEventHandler}
-                                    className="cursor-pointer"
-                                />
-                                <Label htmlFor="r2">Admin</Label>
-                            </div>
-                        </RadioGroup>
+                        
                         <div className='flex items-center gap-2'>
                             <Label>Profile</Label>
                             <Input
