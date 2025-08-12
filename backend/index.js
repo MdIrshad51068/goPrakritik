@@ -29,9 +29,9 @@ const PORT = process.env.PORT || 3000;
 app.use("/api/v1/user", userRoute);
 app.use("/api/v1/job", JobRoute);
 app.use("/api/v1/application", applicationRoute);
-app.use("/",(req,res)=>{
-res.send("hello")
-})
+// app.use("/",(req,res)=>{
+// res.send("hello")
+// })
 
 
 

@@ -1,4 +1,8 @@
-export const USER_API_END_POINT="http://localhost:8088/api/v1/user";
-export const JOB_API_END_POINT="http://localhost:8088/api/v1/job";
-export const APPLICATION_API_END_POINT="http://localhost:8088/api/v1/application";
+import dotenv from 'dotenv'
+
+dotenv.config({});
+
+export const USER_API_END_POINT=`${process.env.RENDER}/api/v1/user`;
+export const JOB_API_END_POINT=`${process.env.RENDER}/api/v1/job`;
+export const APPLICATION_API_END_POINT=`${process.env.RENDER}/api/v1/application`;
 
