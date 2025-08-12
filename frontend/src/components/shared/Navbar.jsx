@@ -10,8 +10,6 @@ import axios from 'axios'
 import { USER_API_END_POINT } from '@/components/utils/constant.js'
 import { setUser } from '@/components/redux/authSlice.js'
 import { toast } from 'sonner'
-import dotenv from 'dotenv'
-dotenv.config()
 
 const Navbar = () => {
     const { user } = useSelector(store => store.auth);
@@ -20,7 +18,7 @@ const Navbar = () => {
 
     const logoutHandler = async () => {
         try {
-            const res = await axios.get(`${process.env.USER_API_END_POINT}/logout`, { withCredentials: true });
+            const res = await axios.get(`${USER_API_END_POINT}/logout`, { withCredentials: true });
             if (res.data.success) {
                 dispatch(setUser(null));
                 navigate("/");

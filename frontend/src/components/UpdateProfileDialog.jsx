@@ -6,11 +6,9 @@ import { Button } from './ui/button'
 import { Loader2 } from 'lucide-react'
 import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
-// import { USER_API_END_POINT } from '@/components/utils/constant'
+import { USER_API_END_POINT } from '@/components/utils/constant'
 import { setUser } from '@/components/redux/authSlice'
 import { toast } from 'sonner'
-import dotenv from 'dotenv'
-dotenv.config()
 
 const UpdateProfileDialog = ({ open, setOpen }) => {
     const [loading, setLoading] = useState(false);
@@ -48,7 +46,7 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
         }
         try {
             setLoading(true);
-            const res = await axios.post(`${process.env.USER_API_END_POINT}/profile/update`, formData, {
+            const res = await axios.post(`${USER_API_END_POINT}/profile/update`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 },
