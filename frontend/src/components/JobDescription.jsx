@@ -7,6 +7,8 @@ import { APPLICATION_API_END_POINT, JOB_API_END_POINT } from '@/components/utils
 import { setSingleJob } from '@/components/redux/jobSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'sonner';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const JobDescription = () => {
     const {singleJob} = useSelector(store => store.job);
@@ -20,7 +22,7 @@ const JobDescription = () => {
 
     const applyJobHandler = async () => {
         try {
-            const res = await axios.get(`${APPLICATION_API_END_POINT}/apply/${jobId}`, {withCredentials:true});
+            const res = await axios.get(`${process.env.APPLICATION_API_END_POINT}/apply/${jobId}`, {withCredentials:true});
             
             if(res.data.success){
                 setIsApplied(true); // Update the local state
