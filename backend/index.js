@@ -6,10 +6,13 @@ import connectDB from "./utils/db.js";
 import userRoute from "./routers/user.route.js";
 import JobRoute from "./routers/job.route.js";
 import applicationRoute from "./routers/application.route.js";
+import path from "path";//just for render
 
 dotenv.config({});
 
 const app = express();
+
+const _dirname=path.resolve();//just for render
 
 // middleware
 app.use(express.json());
@@ -29,9 +32,11 @@ const PORT = process.env.PORT || 3000;
 app.use("/api/v1/user", userRoute);
 app.use("/api/v1/job", JobRoute);
 app.use("/api/v1/application", applicationRoute);
-// app.use("/",(req,res)=>{
-// res.send("hello")
-// })
+
+app.use(express.static(path.join(_dirname,"frontend/dist")))//for render
+app.get(/.*/,(_,res)=>{
+    res.sendFile(path.resolve(_dirname,"frontend","dist","index.html"))
+})
 
 
 
