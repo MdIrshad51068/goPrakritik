@@ -8,7 +8,6 @@ import logo from '../../src/assets/GoP.png';
 
 const Job = ({job}) => {
     const navigate = useNavigate();
-    // const jobId = "lsekdhjgdsnfvsdkjf";
 
     const daysAgoFunction = (mongodbTime) => {
         const createdAt = new Date(mongodbTime);
